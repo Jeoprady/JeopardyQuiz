@@ -116,3 +116,80 @@ app.post('/auth/signin', function (req, res) {
     }
   });
 });
+
+app.get('/questions', function(req, res) {
+  var categoryTitle = req.query.categoryTitle;
+  var airDate = req.query.airDate;
+  var questionText = req.query.questionText;
+  var dollarValue = req.query.dollarValue;
+  var answerText = req.query.answerText;
+  var showNumber = req.query.showNumber;
+
+  if (dollarValue !== undefined) {
+    var n = 0;
+    if (dollarValue.charAt(0) == "$")
+      n = 1;
+
+    for (var i = n; i < dollarValue.length; i++) {
+      var c = dollarValue.charAt(i);
+      if ((c < '0' || c > '9') && c !== ",")
+        return res.status(400).json({message : "invalid_data"});
+    }
+  }
+
+  if (airDate !== undefined) {
+    var data = airDate.split("-");
+    airDate = data[1] + "/" + data[2] + "/" + data[0].substring(2);
+  }
+
+  var params = [];
+  var category = "";
+  if (categoryTitle !== undefined)
+    category = "('" + categoryTitle + "' IS NULL OR LOWER(c.CategoryTitle) = LOWER('" + categoryTitle + "' ))";
+
+  var date = "";
+  if (airDate !== undefined)
+    date = "('" + airDate + "' IS NULL OR q.AirDate = '" + airDate + "' )";
+
+  var question = "";
+  if (questionText !== undefined)
+    question = "('" + questionText + "' IS NULL OR q.QuestionText LIKE '%" + questionText + "%')";
+
+  var answer = "";
+  if (answerText !== undefined)
+    answer = "('" + answerText + "' IS NULL OR q.AnswerText LIKE '%" + answerText + "%')";
+
+  var dollar = "";
+  if (dollarValue !== undefined)
+    dollar = "('" + dollarValue + "' IS NULL OR q.DollarValue = '" + dollarValue + "' )";
+
+  var showNum = "";
+  if (showNumber !== undefined)
+    showNum = "('" + showNumber + "' IS NULL OR q.ShowNumber = '" + showNumber + "' )";
+
+  var searchCriterias = [category, date, question, answer, dollar, showNum];
+
+  var concatSearch = "";
+  for (var i = 0; i < searchCriterias.length; i++) {
+    if (searchCriterias[i] != "") {
+      if (concatSearch == "")
+        concatSearch += " " + searchCriterias[i];
+      else
+        concatSearch += " AND " + searchCriterias[i];
+    }
+  }
+
+  var currentQuery = "SELECT *  FROM Questions `q` INNER JOIN Categories `c` ON (q.CategoryCode = c.CategoryCode) WHERE" + concatSearch + " ORDER BY AirDate";
+
+  if (concatSearch == "")
+    currentQuery = "SELECT * FROM Questions `q` INNER JOIN Categories `c` ON (q.CategoryCode = c.CategoryCode)";
+
+  db.all(currentQuery, params, function(err, results) {
+    if (err)
+      return res.status(500).json({message: "Internal server error"});
+    /*if (results.length > 5000)
+      return res.status(400).json({message: "too_many_results"});*/
+    else
+      return res.status(200).json(results);
+  });
+});
