@@ -1,0 +1,28 @@
+{
+  "name": "jeopardy-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashast1310/JeopardyQuiz.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prashast1310/JeopardyQuiz/issues"
+  },
+  "homepage": "https://github.com/prashast1310/JeopardyQuiz#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "hat": "0.0.3",
+    "moment": "^2.19.2",
+    "sqlite3": "^3.1.13",
+    "sqlite3-transactions": "0.0.5"
+  }
+}
