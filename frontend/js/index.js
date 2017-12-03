@@ -1,5 +1,19 @@
 function body_onload() {
-  btnSignIn.onclick = btnSignIn_onclick;
+  btnSignIn1.onclick = btnSignIn_onclick;
+  btnSignUp1.onclick = btnSignUp_onclick;
+}
+
+function btnSignUp_onclick() {
+  var signin = document.getElementById("form-signin");
+  signin.style.display = 'none';
+
+  var signup = document.getElementById("form-signup");
+  signup.style.display = 'block';
+
+  var btn = document.getElementById("btnSignIn2");
+  btn.style.display = 'none';
+
+  return false;
 }
 
 function btnSignIn_onclick() {
