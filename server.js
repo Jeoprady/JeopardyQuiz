@@ -73,8 +73,10 @@ app.post('/auth/signin', function (req, res) {
     password : req.body.password
   }
 
-  if (data.userID === undefined || data.password === undefined || data.userID.length === 0 || data.password.length ===0)
+  if (data.userID === undefined || data.password === undefined || data.userID.length === 0 || data.password.length ===0) {
+    console.log("undefined username");
     return res.status(400).json({message: "invalid_data"});
+  }
 
   var params = [];
   //console.log(data.userID + " " + data.password);
@@ -114,12 +116,15 @@ app.post('/auth/signin', function (req, res) {
               });
           }
           else {
+            console.log("invalid_credentials");
             return res.status(401).json({message: "invalid_credentials"});
           }
         }
       }
-      if (!flag)
+      if (!flag) {
+        console.log("empty table");
         return res.status(401).json({message: "invalid_credentials_empty_table"});
+      }
     }
   });
 });

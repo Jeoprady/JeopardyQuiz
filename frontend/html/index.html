@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
     <title>Jeopardy</title>
 
@@ -18,9 +19,11 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/index.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="../js/index.js"></script>
+
   </head>
 
-  <body>
+  <body onload="body_onload()">
 
     <div class="container">
 
@@ -30,12 +33,7 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" id="btnSignIn" type="submit">Sign in</button>
       </form>
 
     </div> <!-- /container -->
