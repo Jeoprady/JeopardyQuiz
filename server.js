@@ -5,6 +5,8 @@ var cors = require('cors');
 var hat = require('hat');
 var moment = require('moment');
 var transactionDatabase = require("sqlite3-transactions").TransactionDatabase;
+var cons = require('consolidate');
+var path = require('path');
 
 var db = new transactionDatabase(new sqlite3.Database('./Jeopardy.db'));
 
@@ -15,9 +17,14 @@ app.use(bodyParser.urlencoded({
   extended:true
 }));
 app.use(bodyParser.json());
+app.engine('html', cons.swig);
+app.set('views', __dirname + '/frontend/html');
+app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, 'frontend')));
+
 
 app.use(function(req,res,next) {
-	if (req.path === "/auth/signin") {
+	if (req.path === "/auth/signin" || req.path === "/") {
 		return next();
 	}
   else {
@@ -56,7 +63,7 @@ var server = app.listen(port, function() {
 });
 
 app.get('/', function(req, res) {
-  return res.status(200).send('ok');
+  return res.render('index', { title: 'FilmedIn' });
 });
 
 app.post('/auth/signin', function (req, res) {

@@ -18,11 +18,14 @@
   "homepage": "https://github.com/prashast1310/JeopardyQuiz#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "consolidate": "^0.15.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "hat": "0.0.3",
     "moment": "^2.19.2",
+    "path": "^0.12.7",
     "sqlite3": "^3.1.13",
-    "sqlite3-transactions": "0.0.5"
+    "sqlite3-transactions": "0.0.5",
+    "swig": "^1.4.2"
   }
 }
