@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 
 app.use(function(req,res,next) {
-	if (req.path === "/auth/signin" || req.path === "/") {
+	if (req.path === "/auth/signin" || req.path === "/" || req.path === "/signup" || req.path === "/play") {
 		return next();
 	}
   else {
@@ -65,6 +65,37 @@ var server = app.listen(port, function() {
 app.get('/', function(req, res) {
   return res.render('index', { title: 'FilmedIn' });
 });
+
+app.post('/signup', function(req, res) {
+  var data = {
+    userID : req.body.userID,
+    password : req.body.password,
+    name : req.body.name,
+    nickName : req.body.nickName,
+    highScore : 0
+  }
+
+
+  var insertQuery = "INSERT INTO Users(UserID,UserPassword) VALUES ('" + data.userID+ "','" + data.UserPassword + "');";
+  var par = []
+  db.run(insertQuery, par, function(err, result) {
+  if (err) {
+    return res.status(500).json(
+      {message: err});
+  }
+});
+
+var insertInfoQuery = "INSERT INTO UserInfo(UserID,HighScore,Name,NickName) VALUES ('" + data.userID+ "','" + data.highScore + "','" + data.name + "','" + data.nickName + "');"
+db.run(insertInfoQuery, par, function(err, result) {
+if (err) {
+  return res.status(500).json(
+    {message: err});
+}
+
+});
+
+});
+
 
 app.post('/auth/signin', function (req, res) {
   //var {userID, password} = req.body;
@@ -123,6 +154,18 @@ app.post('/auth/signin', function (req, res) {
     }
   });
 });
+
+
+app.get('/play',function (req,res) {
+  var currentQuery = "SELECT * FROM Users;"
+  var params = [];
+  db.all(currentQuery, params, function(err, results) {
+    if (err)
+      return res.status(500).json({message: "Internal server error"});
+    else
+      console.log(results);
+  });
+})
 
 app.get('/questions', function(req, res) {
   var categoryTitle = req.query.categoryTitle;
