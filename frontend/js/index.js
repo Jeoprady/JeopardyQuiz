@@ -10,8 +10,8 @@ function btnSignUp_onclick() {
   var signup = document.getElementById("form-signup");
   signup.style.display = 'block';
 
-  var btn = document.getElementById("btnSignIn2");
-  btn.style.display = 'none';
+  // var btn = document.getElementById("btnSignIn2");
+  // btn.style.display = 'none';
 
   return false;
 }
