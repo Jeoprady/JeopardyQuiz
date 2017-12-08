@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
     <title>Jeopardy</title>
 
@@ -18,26 +19,38 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/index.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="../js/index.js"></script>
+
   </head>
 
-  <body>
-
+  <body onload="body_onload()">
     <div class="container">
+      <div id="form">
+        <form class="form-signin" id="form-signin" novalidate>
+          <h2 class="form-signin-heading">Please sign in</h2>
+          <label for="inputEmailIn" class="sr-only">Email address</label>
+          <input type="email" id="inputEmailIn" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputPasswordIn" class="sr-only">Password</label>
+          <input type="password" id="inputPasswordIn" class="form-control" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" id="btnSignIn1" type="submit">Sign In</button>
+          <button class="btn btn-lg btn-primary btn-block" id="btnSignUp1" type="submit">Sign Up</button>
+        </form>
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
+        <form class="form-signup" id="form-signup" novalidate>
+          <h2 class="form-signup-heading">Please sign in</h2>
+          <label for="inputName" class="sr-only">Name</label>
+          <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+          <label for="inputNickname" class="sr-only">Nick Name</label>
+          <input type="email" id="inputNickname" class="form-control" placeholder="Nick Name" required>
+          <label for="inputEmailUp" class="sr-only">Email address</label>
+          <input type="email" id="inputEmailUp" class="form-control" placeholder="Email address" required>
+          <label for="inputPasswordUp" class="sr-only">Password</label>
+          <input type="password" id="inputPasswordUp" class="form-control" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" id="btnSignIn2" type="submit">Sign In</button>
+          <button class="btn btn-lg btn-primary btn-block" id="btnSignUp2" type="submit">Sign Up</button>
+        </form>
+      </div>
     </div> <!-- /container -->
+
   </body>
 </html>

@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 
 app.use(function(req,res,next) {
-	if (req.path === "/auth/signin" || req.path === "/" || req.path === "/signup" || req.path === "/play" || req.path == "/logout") {
+	if (req.path === "/auth/signin" || req.path === "/" || req.path === "/signup" || req.path === "/play" || req.path == "/logout" || req.path == "/highScore") {
 		return next();
 	}
   else {
@@ -76,26 +76,50 @@ app.post('/signup', function(req, res) {
   }
 
 
-  var insertQuery = "INSERT INTO Users(UserID,UserPassword) VALUES ('" + data.userID+ "','" + data.UserPassword + "');";
+  var insertQuery = "INSERT INTO Users(UserID,UserPassword) VALUES ('" + data.userID+ "','" + data.password + "');";
   var par = []
   db.run(insertQuery, par, function(err, result) {
-  if (err) {
-    return res.status(500).json(
-      {message: err});
-  }
+    if (err) {
+      return res.status(500).json(
+        {message: err});
+    }
+    else {
+      var insertInfoQuery = "INSERT INTO UserInfo(UserID,HighScore,Name,NickName) VALUES ('" + data.userID+ "','" + data.highScore + "','" + data.name + "','" + data.nickName + "');"
+      db.run(insertInfoQuery, par, function(err, result) {
+        if (err) {
+          return res.status(500).json(
+            {message: err});
+        }
+        //TODO: else?
+         else {
+           return res.status(200).json(
+             {message: "success"});
+         }
+      });
+    }
+    });
+  });
+
+app.get('/profile', function (req, res) {
+  var email = req.query.email;
+
+  var params = [];
+  var query = "SELECT * FROM UserInfo WHERE UserID = '" + email + "'";
+  db.get(query, params, function(err, user) {
+    if(err) {
+      return res.status(500).json({message: "Internal server error"});
+    }
+
+    if(user == null) {
+      return res.status(401).json({message: "unauthorized_access"});
+    }
+
+    return res.status(200).json({
+      message: "success",
+      profile: user
+    })
+  });
 });
-
-var insertInfoQuery = "INSERT INTO UserInfo(UserID,HighScore,Name,NickName) VALUES ('" + data.userID+ "','" + data.highScore + "','" + data.name + "','" + data.nickName + "');"
-db.run(insertInfoQuery, par, function(err, result) {
-if (err) {
-  return res.status(500).json(
-    {message: err});
-}
-
-});
-
-});
-
 
 app.post('/auth/signin', function (req, res) {
   //var {userID, password} = req.body;
@@ -104,8 +128,10 @@ app.post('/auth/signin', function (req, res) {
     password : req.body.password
   }
 
-  if (data.userID === undefined || data.password === undefined || data.userID.length === 0 || data.password.length ===0)
+  if (data.userID === undefined || data.password === undefined || data.userID.length === 0 || data.password.length ===0) {
+    console.log("undefined username");
     return res.status(400).json({message: "invalid_data"});
+  }
 
   var params = [];
   //console.log(data.userID + " " + data.password);
@@ -145,19 +171,37 @@ app.post('/auth/signin', function (req, res) {
               });
           }
           else {
+            console.log("invalid_credentials");
             return res.status(401).json({message: "invalid_credentials"});
           }
         }
       }
-      if (!flag)
+      if (!flag) {
+        console.log("empty table");
         return res.status(401).json({message: "invalid_credentials_empty_table"});
+      }
     }
+  });
+});
+
+app.post('/highScore', function (req, res) {
+  var user = req.body.userID;
+  var score = req.body.highScore;
+  var updateQuery = "UPDATE UserInfo SET HighScore = " + score + " WHERE UserID IS '" + user + "';";
+  console.log(updateQuery);
+  var params = [];
+  db.run(updateQuery, params, function(err, results) {
+    if (err)
+      return res.status(500).json({message: err.message});
+    else
+      //console.log(results);
+      return res.status(200).json({message: "Success"});
   });
 });
 
 app.post('/logout', function(req,res) {
   var email = req.body.userID;
-  console.log(email);
+  //console.log(email);
   var updateQuery = "UPDATE Users SET AuthToken = NULL, AuthTokenIssued = NULL WHERE UserID IS '" + email + "';";
   console.log(updateQuery);
   var params = []
