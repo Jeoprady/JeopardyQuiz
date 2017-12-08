@@ -24,28 +24,29 @@
   </head>
 
   <body onload="body_onload()">
-
     <div class="container">
       <div id="form">
-        <form class="form-signin" id="form-signin">
+        <form class="form-signin" id="form-signin" novalidate>
           <h2 class="form-signin-heading">Please sign in</h2>
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-          <button class="btn btn-lg btn-primary btn-block" id="btnSignIn1" type="submit">Sign in</button>
+          <label for="inputEmailIn" class="sr-only">Email address</label>
+          <input type="email" id="inputEmailIn" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputPasswordIn" class="sr-only">Password</label>
+          <input type="password" id="inputPasswordIn" class="form-control" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" id="btnSignIn1" type="submit">Sign In</button>
           <button class="btn btn-lg btn-primary btn-block" id="btnSignUp1" type="submit">Sign Up</button>
         </form>
 
-        <form class="form-signup" id="form-signup">
+        <form class="form-signup" id="form-signup" novalidate>
           <h2 class="form-signup-heading">Please sign in</h2>
           <label for="inputName" class="sr-only">Name</label>
           <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-          <!-- <button class="btn btn-lg btn-primary btn-block" id="btnSignUp" type="submit">Sign Up</button> -->
+          <label for="inputNickname" class="sr-only">Nick Name</label>
+          <input type="email" id="inputNickname" class="form-control" placeholder="Nick Name" required>
+          <label for="inputEmailUp" class="sr-only">Email address</label>
+          <input type="email" id="inputEmailUp" class="form-control" placeholder="Email address" required>
+          <label for="inputPasswordUp" class="sr-only">Password</label>
+          <input type="password" id="inputPasswordUp" class="form-control" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" id="btnSignIn2" type="submit">Sign In</button>
           <button class="btn btn-lg btn-primary btn-block" id="btnSignUp2" type="submit">Sign Up</button>
         </form>
       </div>

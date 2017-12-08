@@ -76,24 +76,31 @@ app.post('/signup', function(req, res) {
   }
 
 
-  var insertQuery = "INSERT INTO Users(UserID,UserPassword) VALUES ('" + data.userID+ "','" + data.UserPassword + "');";
+  var insertQuery = "INSERT INTO Users(UserID,UserPassword) VALUES ('" + data.userID+ "','" + data.password + "');";
   var par = []
   db.run(insertQuery, par, function(err, result) {
     if (err) {
       return res.status(500).json(
         {message: err});
     }
+    else {
+      var insertInfoQuery = "INSERT INTO UserInfo(UserID,HighScore,Name,NickName) VALUES ('" + data.userID+ "','" + data.highScore + "','" + data.name + "','" + data.nickName + "');"
+      db.run(insertInfoQuery, par, function(err, result) {
+        if (err) {
+          return res.status(500).json(
+            {message: err});
+        }
+        //TODO: else?
+         else {
+           return res.status(200).json(
+             {message: "success"});
+         }
+      });
+    }
+    });
   });
 
-  var insertInfoQuery = "INSERT INTO UserInfo(UserID,HighScore,Name,NickName) VALUES ('" + data.userID+ "','" + data.highScore + "','" + data.name + "','" + data.nickName + "');"
-  db.run(insertInfoQuery, par, function(err, result) {
-    if (err) {
-      return res.status(500).json(
-        {message: err});
-    }
-    //TODO: else?
-  });
-});
+
 
 
 app.post('/auth/signin', function (req, res) {
