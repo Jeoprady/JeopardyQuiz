@@ -17,6 +17,30 @@ body {
   justify-content: center;
 }*/
 
+.container {
+  background-color: red;
+  color: white;
+  padding: 10px;
+}
+
+.row {
+  padding: 10px;
+  /*border-style: solid;
+  border-width: thin;*/
+  height: 175px;
+}
+
+.col-sm-2 {
+  word-wrap: break-word;
+  border-style: solid;
+  border-width: thin;
+  height: 100%;
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
 #scrCtr {
   position: relative;
   display: flex;
@@ -33,4 +57,18 @@ body {
 
 #grid {
   display: none;
+}
+
+#catTlt, #dolVal {
+  display: block;
+  cursor: pointer;
+}
+
+#dolVal {
+  font-size: 20px;
+  bottom: 2px;
+}
+
+#leave {
+  cursor: pointer;
 }

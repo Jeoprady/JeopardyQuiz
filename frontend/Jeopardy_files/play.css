@@ -1,0 +1,70 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: blue;
+  height: 100%;
+}
+
+#center {
+  height: 80%;
+}
+
+/*#grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}*/
+
+.container {
+  background-color: red;
+  color: white;
+  padding: 10px;
+}
+
+.row {
+  padding: 10px;
+  /*border-style: solid;
+  border-width: thin;*/
+  height: 175px;
+}
+
+.col-sm-2 {
+  word-wrap: break-word;
+  border-style: solid;
+  border-width: thin;
+  height: 100%;
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+#scrCtr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#right {
+  position: absolute;
+  float: right;
+  right: 5px;
+  cursor: pointer;
+}
+
+#grid {
+  display: none;
+}
+
+#catTlt, #dolVal {
+  display: block;
+  cursor: pointer;
+}
+
+#dolVal {
+  font-size: 20px;
+  bottom: 2px;
+}
