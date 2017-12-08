@@ -2,7 +2,6 @@ var link = "http://localhost:8000";
 
 var questions = [];
 var currScore = 0;
-var highScore;
 
 var id;
 
@@ -17,15 +16,6 @@ function body_onload() {
 
   var sub = document.getElementById('submit');
   sub.onclick = sub_onclick;
-
-  var leave = document.getElementById('leave');
-  leave.onclick = leave_onclick;
-}
-
-function leave_onclick() {
-  if (currScore > highScore) {
-    
-  }
 }
 
 function sub_onclick() {
@@ -85,7 +75,6 @@ function renderProfile() {
 
         var score = document.getElementById("score");
         score.innerHTML = "High Score: " + data.profile.HighScore;
-        highScore = data.profile.HighScore;
 
         for (var i = 0; i < questions.length; i++) {
           var el = document.getElementById("" + i);
