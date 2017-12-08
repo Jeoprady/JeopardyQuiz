@@ -91,7 +91,7 @@ function btnSignUp2_onclick() {
   fetch(link + "/signup", signUpCredentials)
   .then(function(res) {
     if (res.ok) {
-        location.href = "../html/profile.html";
+        location.href = "../html/index.html";
     }
     else {
       console.log("Server Error");
