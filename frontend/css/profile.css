@@ -1,3 +1,38 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: blue;
+  height: 100%;
+}
+
+.container, .center {
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#play {
+  width: 400px;
+  height: 200px;
+  font-size: 50px;
+}
+
+#scrCtr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#right {
+  position: absolute;
+  float: right;
+  right: 5px;
+  cursor: pointer;
 }
