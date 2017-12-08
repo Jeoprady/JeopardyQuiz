@@ -1,107 +1,107 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-    <title>Jeopardy</title>
+  <title>Jeopardy</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="../css/play.css" rel="stylesheet">
-    <script language="javascript" type="text/javascript" src="../js/play.js"></script>
-  </head>
+  <!-- Custom styles for this template -->
+  <link href="../css/play.css" rel="stylesheet">
+  <script language="javascript" type="text/javascript" src="../js/play.js"></script>
+</head>
 
-  <body onload="body_onload()">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" id="name"></a>
-        </div>
-        <div class="nav" id="scrCtr">
-          <a class="navbar-brand" id="score"></a>
-          <a class="navbar-brand" id="curScore">Current Score: 0</a>
-          <div id="right">
-            <a class="navbar-brand" id="leave">Leave Game</a>
-            <a class="navbar-brand" id="logout">Logout</a>
-          </div>
+<body onload="body_onload()">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" id="name"></a>
+      </div>
+      <div class="nav" id="scrCtr">
+        <a class="navbar-brand" id="score"></a>
+        <a class="navbar-brand" id="curScore">Current Score: 0</a>
+        <div id="right">
+          <a class="navbar-brand" id="leave">Leave Game</a>
+          <a class="navbar-brand" id="logout">Logout</a>
         </div>
       </div>
-    </nav>
-    <div id="center">
-      <div class="container">
-        <div class="row">
-          <div id="0" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="1" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="2" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="3" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="4" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="5" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-        </div>
-        <div class="row">
-          <div id="6" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="7" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="8" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="9" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="10" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="11" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-        </div>
-        <div class="row">
-          <div id="12" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="13" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="14" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="15" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="16" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="17" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
+      
+    </div>
+  </nav>
+  <div id="center">
+    <div class="container">
+      <div class="row">
+        <div id="0" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="1" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="2" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="3" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="4" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="5" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+      </div>
+      <div class="row">
+        <div id="6" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="7" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="8" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="9" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="10" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="11" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+      </div>
+      <div class="row">
+        <div id="12" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="13" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="14" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="15" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="16" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="17" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+      </div>
+      <div class="row">
+        <div id="18" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="19" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="20" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="21" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="22" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="23" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+      </div>
+      <div class="row">
+        <div id="24" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="25" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="26" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="27" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="28" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+        <div id="29" class="col-sm-2" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel"></h4>
         </div>
-        <div class="row">
-          <div id="18" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="19" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="20" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="21" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="22" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="23" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="answer" class="control-label">Answer: </label>
+              <input type="text" class="form-control" id="answer">
+            </div>
+          </form>
         </div>
-        <div class="row">
-          <div id="24" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="25" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="26" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="27" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="28" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
-          <div id="29" class="col-sm-2" data-toggle="modal" data-target="#myModal"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="submit" data-dismiss="modal">Submit</button>
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel"></h4>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="answer" class="control-label">Answer: </label>
-                <input type="text" class="form-control" id="answer">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="submit" data-dismiss="modal">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
