@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: blue;
+  height: 100%;
+}
+
+#center {
+  height: 80%;
+}
+
+/*#grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}*/
+
+#scrCtr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#right {
+  position: absolute;
+  float: right;
+  right: 5px;
+  cursor: pointer;
+}
+
+#grid {
+  display: none;
+}

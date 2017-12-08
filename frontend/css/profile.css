@@ -7,11 +7,11 @@ body {
   height: 100%;
 }
 
-.container, .center {
+#container, #center {
   height: 100%;
 }
 
-.center {
+#center, #grid {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,4 +35,8 @@ body {
   float: right;
   right: 5px;
   cursor: pointer;
+}
+
+#grid {
+  display: none;
 }
