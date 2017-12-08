@@ -47,6 +47,7 @@ function btnSignIn1_onclick() {
     if (res.ok) {
       res.json().then(function(data) {
         localStorage.setItem("auth", data.authToken);
+        sessionStorage.setItem("email", email);
         location.href = "../html/profile.html?auth=" + data.authToken;
       });
     }

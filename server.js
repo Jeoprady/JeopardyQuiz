@@ -100,8 +100,26 @@ app.post('/signup', function(req, res) {
     });
   });
 
+app.get('/profile', function (req, res) {
+  var email = req.query.email;
 
+  var params = [];
+  var query = "SELECT * FROM UserInfo WHERE UserID = '" + email + "'";
+  db.get(query, params, function(err, user) {
+    if(err) {
+      return res.status(500).json({message: "Internal server error"});
+    }
 
+    if(user == null) {
+      return res.status(401).json({message: "unauthorized_access"});
+    }
+
+    return res.status(200).json({
+      message: "success",
+      profile: user
+    })
+  });
+});
 
 app.post('/auth/signin', function (req, res) {
   //var {userID, password} = req.body;
