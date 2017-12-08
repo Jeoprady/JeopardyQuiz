@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 
 app.use(function(req,res,next) {
-	if (req.path === "/auth/signin" || req.path === "/" || req.path === "/signup" || req.path === "/play" || req.path == "/logout") {
+	if (req.path === "/auth/signin" || req.path === "/" || req.path === "/signup" || req.path === "/play" || req.path == "/logout" || req.path == "/highScore") {
 		return next();
 	}
   else {
@@ -184,9 +184,24 @@ app.post('/auth/signin', function (req, res) {
   });
 });
 
+app.post('/highScore', function (req, res) {
+  var user = req.body.userID;
+  var score = req.body.highScore;
+  var updateQuery = "UPDATE UserInfo SET HighScore = " + score + " WHERE UserID IS '" + user + "';";
+  console.log(updateQuery);
+  var params = [];
+  db.run(updateQuery, params, function(err, results) {
+    if (err)
+      return res.status(500).json({message: err.message});
+    else
+      //console.log(results);
+      return res.status(200).json({message: "Success"});
+  });
+});
+
 app.post('/logout', function(req,res) {
   var email = req.body.userID;
-  console.log(email);
+  //console.log(email);
   var updateQuery = "UPDATE Users SET AuthToken = NULL, AuthTokenIssued = NULL WHERE UserID IS '" + email + "';";
   console.log(updateQuery);
   var params = []
