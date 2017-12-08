@@ -117,11 +117,14 @@ function sub_onclick() {
       var buttons = document.getElementsByClassName('col-sm-2');
       for (var i = 0; i < buttons.length; i++) {
         if (i == id) {
-          document.getElementById("" + i).removeAttribute("onclick");
+          var btn = document.getElementById("" + i);
+          btn.onclick = null;
         }
       }
     }
   }
+
+  answer.value = "";
 }
 
 function btn_click() {
