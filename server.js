@@ -127,7 +127,7 @@ app.post('/auth/signin', function (req, res) {
     userID : req.body.userID,
     password : req.body.password
   }
-
+console.log(data);
   if (data.userID === undefined || data.password === undefined || data.userID.length === 0 || data.password.length ===0) {
     console.log("undefined username");
     return res.status(400).json({message: "invalid_data"});
@@ -162,6 +162,7 @@ app.post('/auth/signin', function (req, res) {
                     {message: err});
                 }
                 else {
+                  console.log("Success");
                   return res.status(200).json(
                     {
                       message: "success",

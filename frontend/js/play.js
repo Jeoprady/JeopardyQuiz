@@ -20,11 +20,78 @@ function body_onload() {
 
   var leave = document.getElementById('leave');
   leave.onclick = leave_onclick;
+
+  var logout = document.getElementById('logout');
+  logout.onclick = logout_onclick;
+}
+
+function logout_onclick() {
+  var link = "http://localhost:8000";
+
+  var email = sessionStorage.getItem("email");
+
+  var profile = {
+      method: "POST",
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          userID: email,
+      })
+  }
+
+  fetch(link + "/logout?auth=" + localStorage.getItem("auth"), profile)
+  .then(function(res) {
+    if (res.ok) {
+      sessionStorage.removeItem("email");
+      localStorage.removeItem("auth");
+      location.href = "../html/index.html"
+    }
+    else {
+      res.json().then(function(data) {
+        console.log(data.message);
+      });
+    }
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 }
 
 function leave_onclick() {
   if (currScore > highScore) {
-    
+    var link = "http://localhost:8000";
+
+    var email = sessionStorage.getItem("email");
+
+    var profile = {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            userID: email,
+            highScore: currScore
+        })
+    }
+
+    fetch(link + "/highScore?auth=" + localStorage.getItem("auth"), profile)
+    .then(function(res) {
+      if (res.ok) {
+        location.href = "../html/profile.html?auth=" + localStorage.getItem("auth");
+      }
+      else {
+        res.json().then(function(data) {
+          console.log(data.message);
+        });
+      }
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+  }
+  else {
+    location.href = "../html/profile.html?auth=" + localStorage.getItem("auth");
   }
 }
 

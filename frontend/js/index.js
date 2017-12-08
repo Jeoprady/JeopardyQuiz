@@ -26,6 +26,7 @@ function btnSignIn2_onclick() {
 }
 
 function btnSignIn1_onclick() {
+  console.log("Check");
   var link = "http://localhost:8000";
 
   var email = inputEmailIn.value;
@@ -41,20 +42,24 @@ function btnSignIn1_onclick() {
           password: password
       })
   }
+  console.log("User:" + email + " Pass: " + password);
 
   fetch(link + "/auth/signin", loginCredentials)
   .then(function(res) {
     if (res.ok) {
+      console.log("Check in ok");
       res.json().then(function(data) {
         localStorage.setItem("auth", data.authToken);
         sessionStorage.setItem("email", email);
         location.href = "../html/profile.html?auth=" + data.authToken;
+        return;
       });
     }
     else {
       res.json().then(function(data) {
         console.log(data.message);
       });
+      return;
     }
   })
   .catch(function(err) {
